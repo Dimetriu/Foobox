@@ -43,6 +43,11 @@ jobs:
             bundle exec rails db:create
 
       - run:
+          name: Migrate Database
+          command: |
+            bundle exec rails db:migrate
+
+      - run:
           name: Load Database Schema
           command: |
             bundle exec rails db:schema:load --trace
