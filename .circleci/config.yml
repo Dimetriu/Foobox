@@ -62,4 +62,4 @@ workflows:
   foobox:
     jobs:
       - build:
-          context: foobox
+          context: Foobox
