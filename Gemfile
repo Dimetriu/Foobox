@@ -25,6 +25,7 @@ group :development, :test do
     gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
   end
   gem 'factory_bot', '~> 4.11'
+  gem 'rspec_junit_formatter', '~> 0.4.1'
 end
 
 group :development do
