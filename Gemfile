@@ -13,9 +13,15 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'jquery-rails'
-# gem 'redis', '~> 4.0'
+gem 'devise', '~> 4.5'
+gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'sidekiq', '~> 5.2', '>= 5.2.1'
+gem 'fog-aws'
+gem 'mini_magick', '~> 4.8'
+gem 'closure_tree', github: 'ClosureTree/closure_tree'
+gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
-# gem 'mini_magick', '~> 4.8'
 # gem 'capistrano-rails', group: :development
 gem 'bootsnap', '>= 1.1.0', require: false
 
