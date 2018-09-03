@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 2018_09_03_144145) do
   create_table "folders", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.integer "access", default: 0, null: false
-    t.bigint "user_id"
+    t.bigint "category_id"
     t.integer "parent_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_folders_on_category_id"
     t.index ["parent_id"], name: "index_folders_on_parent_id"
-    t.index ["user_id"], name: "index_folders_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_09_03_144145) do
 
   add_foreign_key "assets", "folders"
   add_foreign_key "categories", "users"
-  add_foreign_key "folders", "users"
+  add_foreign_key "folders", "categories"
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
 end
