@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_03_143524) do
+ActiveRecord::Schema.define(version: 2018_09_03_144145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.bigint "folder_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_assets_on_folder_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -69,6 +77,7 @@ ActiveRecord::Schema.define(version: 2018_09_03_143524) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "assets", "folders"
   add_foreign_key "categories", "users"
   add_foreign_key "folders", "users"
   add_foreign_key "memberships", "groups"
