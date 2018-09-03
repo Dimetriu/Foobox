@@ -30,6 +30,9 @@ module Foobox
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # turn template engine to haml instead of erb
+    config.template_engine = :haml
+
     # generate rspec system test files.
     config.generators do |g|
       g.test_framework :rspec
