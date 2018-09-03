@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_03_142653) do
+ActiveRecord::Schema.define(version: 2018_09_03_143524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2018_09_03_142653) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "folders", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.integer "access", default: 0, null: false
+    t.bigint "user_id"
+    t.integer "parent_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_folders_on_parent_id"
+    t.index ["user_id"], name: "index_folders_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -59,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_09_03_142653) do
   end
 
   add_foreign_key "categories", "users"
+  add_foreign_key "folders", "users"
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
 end
