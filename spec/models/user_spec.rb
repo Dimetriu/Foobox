@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject(:user) { create(:user) }
-  subject(:membership) { create(:membership) }
-  subject(:group) { create(:group) }
-  subject(:category) { create(:category) }
+  include_context "shared_data"
 
   it "is valid with valid attributes" do
     expect(user).to be_valid
