@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.6'
+  gem 'rails-controller-testing'
   gem 'database_cleaner', '~> 1.7'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
   gem 'faker', '~> 1.9', '>= 1.9.1'
