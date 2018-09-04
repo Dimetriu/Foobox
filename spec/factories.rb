@@ -12,6 +12,6 @@ FactoryBot.define do
   end
 
   factory :group, aliases: [:category] do
-    name { Faker::Educator.subject }
+    name { Faker::Pokemon.name }
   end
 end

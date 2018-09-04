@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  include_context "shared_data"
+  subject(:user) { create(:user) }
 
   it "is valid with valid attributes" do
     expect(user).to be_valid
@@ -21,15 +21,27 @@ RSpec.describe User, type: :model do
 
   context "associactions" do
     it "has many memberships" do
-      expect(user).to have_many(:memberships)
+      expect(user).to have_many(:memberships).inverse_of(:user)
     end
 
     it "has many groups" do
-      expect(user).to have_many(:groups)
+      expect(user).to have_many(:groups).through(:memberships).inverse_of(:users)
     end
 
     it "has many categories" do
-      expect(user).to have_many(:groups)
+      expect(user).to have_many(:groups).inverse_of(:users)
+    end
+
+    it "has database index on email" do
+      expect(user).to have_db_index(:email).unique(:true)
+    end
+
+    it "has database index on username" do
+      expect(user).to have_db_index(:username).unique(:true)
+    end
+
+    it "has database index on reset_password_token" do
+      expect(user).to have_db_index(:reset_password_token).unique(:true)
     end
   end
 end
