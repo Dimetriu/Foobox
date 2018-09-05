@@ -3,20 +3,26 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject(:user) { create(:user) }
 
-  it "is valid with valid attributes" do
-    expect(user).to be_valid
-  end
+  context "attributes" do
+    it "is valid with valid attributes" do
+      expect(user).to be_valid
+    end
 
-  it "is not valid without email" do
-    expect(User.new(email: nil)).to_not be_valid
-  end
+    it "is valid if email is present" do
+      expect(user).to validate_presence_of(:email)
+    end
 
-  it "is not valid without username" do
-    expect(User.new(username: nil)).to_not be_valid
-  end
+    it "is valid if username is present" do
+      expect(user).to validate_presence_of(:username)
+    end
 
-  it "is not valid without password" do
-    expect(User.new(password: nil)).to_not be_valid
+    it "is valid with username length between 3 and 25" do
+      expect(user).to validate_length_of(:username).is_at_least(3).is_at_most(25)
+    end
+
+    it "is valid if password is present" do
+      expect(user).to validate_presence_of(:password)
+    end
   end
 
   context "associactions" do
@@ -31,7 +37,9 @@ RSpec.describe User, type: :model do
     it "has many categories" do
       expect(user).to have_many(:categories).inverse_of(:user)
     end
+  end
 
+  context "database indexes" do
     it "has database index on email" do
       expect(user).to have_db_index(:email).unique(:true)
     end

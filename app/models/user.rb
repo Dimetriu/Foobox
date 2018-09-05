@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :groups, through: :memberships, inverse_of: :users
   has_many :categories, inverse_of: :user
 
+  validates :email, :password, :username, presence: true
+  validates :username, length: { in: 3..25 }
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,

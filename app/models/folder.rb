@@ -6,4 +6,6 @@ class Folder < ApplicationRecord
   has_many :assets, inverse_of: :folder
 
   has_closure_tree order: 'name'
+
+  validates :name, presence: true, length: { in: 3..25 }
 end
