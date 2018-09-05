@@ -20,4 +20,14 @@ FactoryBot.define do
     name { Faker::Pokemon.name }
     color { Faker::Color.rgb_color}
   end
+
+  factory :folder do
+    association :category
+    parent_id { 1 }
+    name { generate :folder_name }
+  end
+
+  sequence :folder_name do |n|
+    "folder#{n}"
+  end
 end

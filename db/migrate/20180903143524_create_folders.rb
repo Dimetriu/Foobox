@@ -6,7 +6,7 @@ class CreateFolders < ActiveRecord::Migration[5.2]
       t.string :name, null: false, default: ""
       t.integer :access, null: false, default: 0
       t.references :category, foreign_key: true, index: { algorithm: :concurrently }
-      t.integer :parent_id, null: false, index: { algorithm: :concurrently }
+      t.integer :parent_id, index: { algorithm: :concurrently }
 
       t.timestamps
     end
