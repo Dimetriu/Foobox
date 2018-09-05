@@ -16,4 +16,12 @@ RSpec.describe Membership, type: :model do
   it "belongs to group" do
     expect(membership).to belong_to(:group).inverse_of(:memberships)
   end
+
+  it "has database index on user_id" do
+    expect(membership).to have_db_index(:user_id)
+  end
+
+  it "has database index on group_id" do
+    expect(membership).to have_db_index(:group_id)
+  end
 end

@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
     end
 
     it "has many categories" do
-      expect(user).to have_many(:groups).inverse_of(:users)
+      expect(user).to have_many(:categories).inverse_of(:user)
     end
 
     it "has database index on email" do
