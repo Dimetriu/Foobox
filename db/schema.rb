@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_140847) do
 
   create_table "folders", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.integer "access", default: 0, null: false
+    t.integer "access", default: 0
     t.bigint "category_id"
     t.integer "parent_id"
     t.datetime "created_at", null: false

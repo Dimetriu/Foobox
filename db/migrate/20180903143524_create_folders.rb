@@ -4,7 +4,7 @@ class CreateFolders < ActiveRecord::Migration[5.2]
   def change
     create_table :folders do |t|
       t.string :name, null: false, default: ""
-      t.integer :access, null: false, default: 0
+      t.integer :access, default: 0
       t.references :category, foreign_key: true, index: { algorithm: :concurrently }
       t.integer :parent_id, index: { algorithm: :concurrently }
 

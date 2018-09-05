@@ -24,7 +24,12 @@ FactoryBot.define do
   factory :folder do
     association :category
     parent_id { 1 }
-    name { generate :folder_name }
+    name { Faker::Pokemon.name }
+  end
+
+  factory :asset do
+    association :folder
+    name { Faker::Pokemon.name }
   end
 
   sequence :folder_name do |n|
