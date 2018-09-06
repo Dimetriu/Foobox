@@ -1,2 +1,13 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.erb
+.bg-main
+  .d-flex.bd-highlight.sticky-top.bg-main
+    .p-4.flex-grow-1.bd-highlight
+      %strong= link_to(t(".brand"), root_url, class: "text-white nav-link")
+    .p-4.bd-highlight
+      %nav.nav
+        = link_to("Sign In", new_user_session_url, class: "text-white nav-link")
+        = link_to("Download", root_url, class: "disabled nav-link")
+  %h1.text-white.text-center.m-5= raw t("title")
+  .d-flex.justify-conent-stretch.text-dark.m-3
+    %p= t("jumbotron_text")
+  .text-center.p-3
+    = link_to("Get Started", root_url, class: "btn btn-outline-light btn-lg")
