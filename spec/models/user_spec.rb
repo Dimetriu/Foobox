@@ -16,10 +16,6 @@ RSpec.describe User, type: :model do
       expect(user).to validate_presence_of(:username)
     end
 
-    it "is valid with username length between 3 and 25" do
-      expect(user).to validate_length_of(:username).is_at_least(3).is_at_most(25)
-    end
-
     it "is valid if password is present" do
       expect(user).to validate_presence_of(:password)
     end
@@ -42,10 +38,6 @@ RSpec.describe User, type: :model do
   context "database indexes" do
     it "has database index on email" do
       expect(user).to have_db_index(:email).unique(:true)
-    end
-
-    it "has database index on username" do
-      expect(user).to have_db_index(:username).unique(:true)
     end
 
     it "has database index on reset_password_token" do

@@ -1,0 +1,22 @@
+.bg-dark
+  .container
+    .d-flex.justify-content-between
+      .p-2.bd-highlight.navbar-brand.text-white FooBox
+      .p-2.bd-highlight
+        = link_to(dashboard_url, class: "nav-link text-light") do
+          = fa_icon "tachometer", text: "Dashboard"
+      .p-2.bd-highlight
+        = link_to(root_url, class: "nav-link text-light") do
+          = fa_icon "bell"
+          .badge.badge-pill.badge-danger 0
+.d-flex.align-items-stretch
+  %ul.nav.flex-column.bg-light.border-right.p-5
+    %li.nav-item
+      %a.nav-link{href: "#"} linksssss
+    %li.nav-item
+      %a.nav-link{href: "#"} link
+    %li.nav-item
+      %a.nav-link{href: "#"} link
+    %li.nav-item
+      %a.nav-link{href: "#"} link
+

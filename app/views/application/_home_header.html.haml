@@ -11,6 +11,9 @@
         = link_to("Sign In", new_user_session_url, class: "text-white nav-link")
       %li.nav-item
         = link_to("Download", root_url, class: "disabled nav-link")
+      - if user_signed_in?
+        %li.nav-item
+          = link_to("Dashboard", dashboard_url, class: "nav-link")
 -# .bd-highlight.bg-primary
 -#   %ul.nav.p-3.justify-content-end
 -#     %li.nav-item
