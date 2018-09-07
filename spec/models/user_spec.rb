@@ -12,10 +12,6 @@ RSpec.describe User, type: :model do
       expect(user).to validate_presence_of(:email)
     end
 
-    it "is valid if username is present" do
-      expect(user).to validate_presence_of(:username)
-    end
-
     it "is valid if password is present" do
       expect(user).to validate_presence_of(:password)
     end
