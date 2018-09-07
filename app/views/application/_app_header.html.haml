@@ -1,0 +1,11 @@
+.navbar.navbar-expand-lg.navbar-light.bg-white
+  .d-flex.bd-highlight
+    .p-2.flex-grow-1.bd-highlight
+  = link_to("FooBox", root_url, class: "navbar-brand text-dark")
+  %button.navbar-toggler{"data-toggle" => "collapse", "data-target" => "mainNavbar", "aria-controls" => "mainNavbar", "aria-expanded" => "false", "aria-label" => "Toggle Navigation"}
+    %span.navbar-toggler-icon
+
+  .navbar.collapse-navbar{"id" => "mainNavbar"}
+    %ul.navbar-nav.justify-content-end
+      %li.nav-item
+        = link_to("Download", root_url, class: "disabled nav-link")
