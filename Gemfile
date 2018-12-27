@@ -12,6 +12,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
 gem 'devise', '~> 4.5'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
@@ -30,7 +32,7 @@ group :development, :test do
 
   # fetching rspec against the master branch
   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
   end
   gem 'factory_bot', '~> 4.11'
   gem 'rspec_junit_formatter', '~> 0.4.1'
@@ -45,6 +47,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.6'
+  gem 'rails-controller-testing'
   gem 'database_cleaner', '~> 1.7'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
   gem 'faker', '~> 1.9', '>= 1.9.1'

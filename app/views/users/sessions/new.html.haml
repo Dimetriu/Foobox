@@ -1,0 +1,16 @@
+.d-flex.mt-2.bd-highlight.justify-content-center
+  .card
+    .card-body
+      .text-center.mb-5
+        %h5.card-title Sign In
+        %span.text-muted or
+        %h6.card-subtitle.mt-3= link_to("Sign Up", new_user_registration_url)
+      .card-text
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-inputs
+            = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }
+            = f.input :password, required: false, input_html: { autocomplete: "current-password" }
+            = f.input :remember_me, as: :boolean, class: "custom-control-input", id: "custom-check" if devise_mapping.rememberable?
+          .form-actions
+            = f.button :submit, "Sign In"
+.mb-5
